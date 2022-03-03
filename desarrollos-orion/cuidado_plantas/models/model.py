@@ -2,25 +2,19 @@ from odoo import models, fields, api
 from odoo.exceptions import ValidationError,UserError
 
 
-#clase planta
-    #atributos planta
-        #nombre
-        #tipo planta (m2o a tipo_planta)
-    #metodos planta
-
-
 class TipodeRiego(models.Model):
     _name="cuidados.tipo_de_riego"
 
     name = fields.Char(string="Nombre")
 
+    def listar_tipo_de_riego():
+        # 
+    def ver_detalle_tipo_riego():
+        # 
+
+
 class Sustrato(models.Model):
     _name="cuidados.sustrato"
-
-    name = fields.Char(string="Nombre")
-
-class TipodePlanta(models.Model):
-    _name="cuidados.tipo_de_planta"
 
     name = fields.Char(string="Nombre")
 
@@ -29,18 +23,12 @@ class OperacionDiaria(models.Model):
 
     name = fields.Char(string="Nombre")
 
-    #asignar jardinero
-    #listar plantas a cuidar
-        #listar cuidados por planta
-
-class TipodePlanta(models.Model):
-    _name="cuidados.tipo_de_planta"
-
-    name = fields.Char(string="Nombre")
-
-#clase tipo planta
-    #nombre
-    #cuidado por defecto
+    def asignar jardinero()
+        # 
+    def listar plantas a cuidar()
+        # 
+    def listar cuidados por planta()
+        # 
 
 
 class TipodePlanta(models.Model):
@@ -48,22 +36,18 @@ class TipodePlanta(models.Model):
 
     name = fields.Char(string="Nombre")
 
-class TipodePlanta(models.Model):
-    _name="cuidados.tipo_de_planta"
-
-    name = fields.Char(string="Nombre")
-
-class TipodePlanta(models.Model):
-    _name="cuidados.tipo_de_planta"
-
-    name = fields.Char(string="Nombre")
-
+    def listar_tipo_de_planta():
+        # 
+    def crear_tipo_planta():
+        # 
+    def eliminar_tipo_planta():
+        # 
+    def ver_detalle_tipo_planta():
+        # 
+    def actualizar_tipo_planta():
 
 class Planta(models.Model):
     _name="cuidados.planta"
-
-
-        #metodos planta
 
     name = fields.Char(string="Nombre")
     foto_referencia = fields.Binary(string="Foto referencia planta")
@@ -82,50 +66,145 @@ class Planta(models.Model):
     tamano_maximo = fields.Float(string="Tamaño máximo")
     tamano_maximo_udm = fields.Many2one('product.uom', string="UdM Tamaño Max.")
 
+    def listar_planta():
+        # 
+    def crear_planta():
+        # 
+    def eliminar_planta():
+        # 
+    def ver_detalle_planta():
+        # 
+    def actualizar_planta():
+        # 
+    def tiempo_riego():
+        # cada cierto tiempo regar la planta
 
 class Plagas(models.Model):
     _name="cuidados.plaga"
 
     name = fields.Char(string="Nombre")
 
-
-#clase planta
-    #atributos planta
-        #nombre
-        #tipo planta (m2o a tipo_planta)
-    #dimensiones
-    #color
-    #tamano_max
-#clase invernaderos
-    #nombre
-    co2 = 
-    sistemas
-
-#clase maceteros
-    #dimensiones
-    #tipo de macetero
-    #tipo de riego
+    def listar_plaga():
+        # 
+    def crear_plaga():
+        # 
+    def ver_detalle_plaga():
+        # 
+    def eliminar_plaga():
+        # 
+    def actualizar_plaga():
+        # 
 
 
-#clase plantacion
-    #metricas
-    #planta
-    #seccion
-    #invernadero
-    #insumos
+class Invernadero(models.Model):
+    _name = "cuidados.invernadero"
+
+    nombre = fields.Char(string="Nombre")
+    co2 = fields.Float()
+    sistemas = fields.Char(string="Nombre")
+
+    def listar_invernadero():
+        # 
+    def crear_invernadero():
+        # 
+    def eliminar_invernadero():
+        # 
+    def ver_detalle_invernadero():
+        # 
+    def actualizar_invernadero():
+        # 
+
+
+class Macetero(models.Model):
+    _name = "cuidados.macetero"
+
+    dimensiones = fields.Float()
+    tipo = fields.Char(string="Tipo de macetero")
+
+    def listar_macetero():
+        #
+    def crear_macetero():
+        # 
+    def ver_detalle_macetero():
+        # 
+    def eliminar_macetero():
+        # 
+    def actualizar_macetero():
+        # 
+
+class Plantacion(models.Model):
+    _name = "cuidados.plantacion"
+
+    planta = fields.Many2one()
+    seccion = fields.Many2one()
+    invernadero = fields.Many2one()
+    insumos = fields.Many2one()
+    metricas = fields.Float()
     foto_referencia = fields.Binary(string="Foto referencia planta")
+    
+    def crear_plantacion():
+        # 
+    def eliminar_plantacion():
+        # 
+    def listar_plantacion():
+        # 
+    def ver_detalle_plantacion():
+        # 
+    def actualizar_plantacion():
+        # 
 
-#clase secciones
-    #nombre
-    #tipos de planta admitidos
+class secciones(models.Model):
+    _name = 'cuidados.secciones'
 
-#clase insumos
-    #nombre
+    invernadero = Many2one()
+    tipo_planta_admitidos = one2Many()
+    nombre = fields.Char()
 
-#clase jardineros
+    def crear_seccion():
+        # 
+    def eliminar_seccion():
+        # 
+    def listar_seccion():
+        # 
+    def ver_detalle_seccion():
+        # 
+    def actualizar_seccion():
+        # 
 
-#clase maquinaria
+class Insumos(models.Model):
+    _name = "cuidados.insumos"
 
-#clase cuidado
+    nombre = fields.Char(string='Nombre')
 
-#clase paso_cuidado
+    def crear_insumos():
+        # 
+    def eliminar_insumo():
+        #
+    def listar_insumos():
+        #
+    def ver_detalle_insumos():
+        #
+    def actualizar_insumos():
+        # 
+
+class Jardineros(models.Model):
+    _name = 'cuidados.jardineros'
+
+    nombre = fields.Char(string="nombre")
+
+    def crear_jardinero():
+        # 
+    def eliminar_jardinero():
+        # 
+    def listar_jardinero():
+        # 
+    def ver_detalle_jardinero():
+        # 
+    def actualizar_jardinero():
+        # 
+
+class Maquinaria(models.Model):
+    _name = 'cuidados.maquinaria'
+
+    nombre = fields.Char(string='Nombre')
+
